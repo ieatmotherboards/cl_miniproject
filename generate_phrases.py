@@ -18,18 +18,11 @@ def generate_phrases(nouns: set, proper_nouns: set, verbs: set, determiners: set
         if noun_or_pn_1 == 0: # go with noun
             n1 = random.choice(list(nouns))
             nouns.remove(n1)
-            # n1 = random.choice(list(determiners)).capitalize() + " " + n1
         
         else: # proper noun
-            
             n1 = random.choice(list(proper_nouns))
             proper_nouns.remove(n1)
 
-        # remove nouns from dataset
-        # if noun_or_pn_1 == 0:
-            
-        # else:
-            
 
         # flip coin to determine if the second noun is regular or PN
         noun_or_pn_2 = random.randint(0,1)
@@ -37,17 +30,11 @@ def generate_phrases(nouns: set, proper_nouns: set, verbs: set, determiners: set
         if noun_or_pn_2 == 0: # go with noun
             n2 = random.choice(list(nouns))
             nouns.remove(n2)
-            # n2 = random.choice(list(determiners)).capitalize() + " " + n2
 
         
         else: # proper noun
             n2 = random.choice(list(proper_nouns))
             proper_nouns.remove(n2)
-
-        # if noun_or_pn_2 == 0:
-           
-        # else:
-        #     proper_nouns.remove(n2)
 
         det_n1 = random.choice(list(determiners)).capitalize()
         det_n2 = random.choice(list(determiners)).capitalize()
@@ -80,7 +67,6 @@ def generate_phrases(nouns: set, proper_nouns: set, verbs: set, determiners: set
         if noun_or_pn_1 == 0: # go with noun
             n1 = random.choice(list(nouns))
             nouns.remove(n1)
-            # n1 = random.choice(list(determiners)).capitalize() + " " + n1
         
         else: # proper noun
             
