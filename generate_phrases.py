@@ -23,14 +23,12 @@ def generate_phrases(nouns: set, proper_nouns: set, verbs: set, determiners: set
             n1 = random.choice(list(proper_nouns))
             proper_nouns.remove(n1)
 
-
         # flip coin to determine if the second noun is regular or PN
         noun_or_pn_2 = random.randint(0,1)
 
         if noun_or_pn_2 == 0: # go with noun
             n2 = random.choice(list(nouns))
             nouns.remove(n2)
-
         
         else: # proper noun
             n2 = random.choice(list(proper_nouns))
@@ -49,11 +47,10 @@ def generate_phrases(nouns: set, proper_nouns: set, verbs: set, determiners: set
         out +=  " was " + verb + " by "
         out += det_n1 + " " + n1 if noun_or_pn_1 == 0 else n1
 
-
         output.append(out)
 
     # generate 200 NOT paraphrases
-    for _ in range(2):
+    for _ in range(200):
         out = ""
 
         verb = random.choice(list(verbs))
@@ -69,20 +66,15 @@ def generate_phrases(nouns: set, proper_nouns: set, verbs: set, determiners: set
             nouns.remove(n1)
         
         else: # proper noun
-            
             n1 = random.choice(list(proper_nouns))
             proper_nouns.remove(n1)
-
             
-
         # flip coin to determine if the second noun is regular or PN
         noun_or_pn_2 = random.randint(0,1)
 
         if noun_or_pn_2 == 0: # go with noun
             n2 = random.choice(list(nouns))
             nouns.remove(n2)
-            # n2 = random.choice(list(determiners)).capitalize() + " " + n2
-
         
         else: # proper noun
             n2 = random.choice(list(proper_nouns))
@@ -102,16 +94,14 @@ def generate_phrases(nouns: set, proper_nouns: set, verbs: set, determiners: set
         out +=  det_n1 + " " + n1 if noun_or_pn_1 == 0 else n1
         out += " was " + verb + " by"
 
-
         output.append(out)
 
-
-
     return output
+
 # test
 if __name__ == "__main__":
     nouns = {"dog", "cat", "eagle", "table", "house"}
     proper_nouns = {"Holden", "Kevin", "Rui", "Ethan", "Chad"}
     verbs = {"met", "killed", "touched", "saw"}
-    determiners = {"a", "the"}
+    determiners = {"a", "the", "that"}
     print(generate_phrases(nouns=nouns, proper_nouns=proper_nouns, verbs=verbs, determiners=determiners))
