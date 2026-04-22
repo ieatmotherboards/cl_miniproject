@@ -127,4 +127,4 @@ if __name__ == "__main__":
     out = generate_phrases(nouns=lst_of_noun_professions, proper_nouns=pns, verbs=verbs, determiners=determiners)
     with open("phrases.txt", "w") as wf:
         for phrase in out:
-            wf.write(phrase)
+            wf.write(phrase + '\n')
