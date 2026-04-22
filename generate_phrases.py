@@ -1,4 +1,5 @@
 import random
+from parse_noun_professions import lst_of_noun_professions
 
 def generate_phrases(nouns: set, proper_nouns: set, verbs: set, determiners: set):
     output = []
@@ -100,8 +101,27 @@ def generate_phrases(nouns: set, proper_nouns: set, verbs: set, determiners: set
 
 # test
 if __name__ == "__main__":
-    nouns = {"dog", "cat", "eagle", "table", "house"}
-    proper_nouns = {"Holden", "Kevin", "Rui", "Ethan", "Chad"}
-    verbs = {"met", "killed", "touched", "saw"}
+
+    pns = set()
+    with open("parsed_names.txt", "r") as pns_f:
+        pns_f = pns_f.readlines()
+        for pn in pns_f:
+            pns.add(pn[:-1])
+        # pns.add(pn for pn in pns_f)
+
+
+    verbs = set()
+    with open("parsed_verbs.txt", "r") as verbs_f:
+        verbs_f = verbs_f.readlines()
+        # verbs.add(verb for verb in verbs_f)
+        for verb in verbs_f:
+            verbs.add(verb[:-1])
+
+    # nouns = {"dog", "cat", "eagle", "table", "house"}
+    # proper_nouns = {"Holden", "Kevin", "Rui", "Ethan", "Chad"}
+    # verbs = {"met", "killed", "touched", "saw"}
+    # print("nouns:", nouns)
+    # print("PNs:", pns)
+    # print("verbs:", verbs)
     determiners = {"a", "the", "that"}
-    print(generate_phrases(nouns=nouns, proper_nouns=proper_nouns, verbs=verbs, determiners=determiners))
+    print(generate_phrases(nouns=lst_of_noun_professions, proper_nouns=pns, verbs=verbs, determiners=determiners))
