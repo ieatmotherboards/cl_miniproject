@@ -124,4 +124,7 @@ if __name__ == "__main__":
     # print("PNs:", pns)
     # print("verbs:", verbs)
     determiners = {"a", "the", "that"}
-    print(generate_phrases(nouns=lst_of_noun_professions, proper_nouns=pns, verbs=verbs, determiners=determiners))
+    out = generate_phrases(nouns=lst_of_noun_professions, proper_nouns=pns, verbs=verbs, determiners=determiners)
+    with open("phrases.txt", "w") as wf:
+        for phrase in out:
+            wf.write(phrase)
