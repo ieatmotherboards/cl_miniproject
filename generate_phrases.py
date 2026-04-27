@@ -18,8 +18,7 @@ def generate_phrases(nouns: set, proper_nouns: set, past_verbs: set, present_ver
         
         out = ""
 
-        
-
+    
         n1 = None
         n2 = None
 
